@@ -24,6 +24,8 @@ tat
 
 <p>Updated: `$= this.file.mtime` </p>
 
+Updated: `||= this.file.mtime`
+
 <p>Updated: `= this.file.mtime` </p>
 
 <p> as`$= <% tp.file.creation_date("YYYY-MM-DD HH:mm") %> `  asd </p>
