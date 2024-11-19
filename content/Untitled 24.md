@@ -1,7 +1,7 @@
 ---
 created: 2024-11-18T14:52
 updated: 2024-11-18T15:20
-date modified: Tuesday, November 19th 2024, 2:36:59 pm
+date modified: 2024-11-19T14:42:50+01:00
 date created: Tuesday, November 19th 2024, 1:39:54 pm
 ---
 
@@ -14,7 +14,7 @@ NaN
 date updated: NaN
 
 2024-11-19 13:39
-2024-11-19 13:39
+2024-11-19 1:39
 
 
 jupyter notebook jest szybszy w wykonywaniu niż jupyter lab.
