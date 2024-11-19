@@ -1,5 +1,5 @@
 ---
-date modified: 2024-11-19T13:39:54+01:00
+date modified: 2024-11-19 16:36
 date created: 2024-11-19T01:17:23+01:00
 link: "#tag1"
 tags:
@@ -54,3 +54,8 @@ WHERE econtains(this.file.tags, Tag)
 
 
 asffas
+
+
+```dataview
+LIST FROM #tag1  
+```
