@@ -1,5 +1,5 @@
 ---
-date modified: 2024-11-20 13:55
+date modified: 2024-11-20 13:58
 date created: 2024-11-20 12:20
 tags: 
 ---
@@ -27,3 +27,18 @@ list from #tag1
 
 %% DATAVIEW_PUBLISHER: end %%
 
+
+
+tag2
+
+
+%% DATAVIEW_PUBLISHER: start
+```dataview
+list from #tag2 
+```
+%%
+
+- [[content/Untitled 1.md|Untitled 1]]
+- [[content/Untitled 2.md|Untitled 2]]
+
+%% DATAVIEW_PUBLISHER: end %%
