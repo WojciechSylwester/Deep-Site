@@ -1,5 +1,5 @@
 ---
-date modified: 2024-11-20 14:47
+date modified: 2024-11-20 15:03
 date created: 2024-11-20 12:20
 tags: 
 ---
@@ -87,12 +87,12 @@ where file.path = this.file.path
 
 %% DATAVIEW_PUBLISHER: start
 ```dataview
-list WITHOUT ID file.ctime
+list WITHOUT ID dateformat(file.ctime, "yyyy-MM-dd HH:mm" )
 where file.path = this.file.path
 ```
 %%
 
-- 2:44 PM - November 20, 2024
+- 2024-11-20 14:47
 
 %% DATAVIEW_PUBLISHER: end %%
 
@@ -116,3 +116,16 @@ group by tags
 
 %% DATAVIEW_PUBLISHER: end %%
 
+
+
+
+%% DATAVIEW_PUBLISHER: start
+```dataview
+list WITHOUT ID dateformat(file.ctime, "yyyy-MM-dd HH:mm" )
+where file.path = this.file.path
+```
+%%
+
+- 2024-11-20 14:47
+
+%% DATAVIEW_PUBLISHER: end %%
