@@ -1,5 +1,5 @@
 ---
-date modified: 2024-11-20 15:35
+date modified: 2024-11-20 23:28
 date created: 2024-11-20 12:20
 tags:
   - jupyter
