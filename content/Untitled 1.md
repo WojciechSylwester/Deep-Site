@@ -1,5 +1,5 @@
 ---
-date modified: 2024-11-20 14:44
+date modified: 2024-11-20 14:47
 date created: 2024-11-20 12:20
 tags: 
 ---
@@ -92,6 +92,27 @@ where file.path = this.file.path
 ```
 %%
 
-- 2:35 PM - November 20, 2024
+- 2:44 PM - November 20, 2024
 
 %% DATAVIEW_PUBLISHER: end %%
+
+
+
+
+%% DATAVIEW_PUBLISHER: start
+```dataview
+table without id tags
+from "content"
+where file.name != this.file.name
+flatten file.tags as tags
+group by tags
+```
+%%
+
+| tags                |
+| ------------------- |
+| #dataview-publisher |
+| #tag2               |
+
+%% DATAVIEW_PUBLISHER: end %%
+
