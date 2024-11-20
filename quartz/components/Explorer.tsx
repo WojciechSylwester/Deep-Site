@@ -33,7 +33,7 @@ const defaultOptions = {
       return -1
     }
   },
-  filterFn: (node) => node.name !== "",
+  filterFn: (node) => node.name !== "z",
   order: ["filter", "map", "sort"],
 } satisfies Options
 
