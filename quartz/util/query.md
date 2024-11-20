@@ -1,5 +1,5 @@
 ---
-date modified: 2024-11-20 15:31
+date modified: 2024-11-20 16:02
 date created: 2024-11-20 12:20
 tags: 
 ---
@@ -22,7 +22,7 @@ list from #tag1
 ```
 %%
 
-- [[content/Untitled 1.md|Untitled 1]]
+
 
 %% DATAVIEW_PUBLISHER: end %%
 
@@ -37,8 +37,7 @@ list from #tag2
 ```
 %%
 
-- [[content/Untitled 2.md|Untitled 2]]
-- [[content/Untitled 1.md|Untitled 1]]
+
 
 %% DATAVIEW_PUBLISHER: end %%
 
@@ -91,7 +90,7 @@ where file.path = this.file.path
 ```
 %%
 
-- 2024-11-20 14:47
+- 2024-11-20 15:40
 
 %% DATAVIEW_PUBLISHER: end %%
 
@@ -108,9 +107,14 @@ group by tags
 ```
 %%
 
-| tags                |
-| ------------------- |
+| tags       |
+| ---------- |
+| #DMatrix   |
+| #jupyter   |
+| #wydajność |
+| #XGB       |
 
+%% DATAVIEW_PUBLISHER: end %%
 
 %% DATAVIEW_PUBLISHER: end %%
 
@@ -124,6 +128,6 @@ where file.path = this.file.path
 ```
 %%
 
-- 2024-11-20 14:47
+- 2024-11-20 15:40
 
 %% DATAVIEW_PUBLISHER: end %%
