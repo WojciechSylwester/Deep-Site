@@ -17,7 +17,15 @@ const defaultOptions = {
     return node
   },
   sortFn: (a, b) => {
-    // Sort order: folders first, then files. Sort folders and files alphabetically
+    // Sort order: most recent first
+    const dateA = a.file ? new Date(a.date-modified).getTime() : 0; // Assume folders have no date
+    const dateB = b.file ? new Date(b.date-modified).getTime() : 0;
+
+    if (dateA !== dateB) {
+      return dateB - dateA; // Descending order of dates
+    }
+  //sortFn: (a, b) => {
+  //  // Sort order: folders first, then files. Sort folders and files alphabetically
     if ((!a.file && !b.file) || (a.file && b.file)) {
       // numeric: true: Whether numeric collation should be used, such that "1" < "2" < "10"
       // sensitivity: "base": Only strings that differ in base letters compare as unequal. Examples: a ≠ b, a = á, a = A
@@ -33,7 +41,7 @@ const defaultOptions = {
       return -1
     }
   },
-  filterFn: (_) => true ,//(node) => node.name !== "tags",
+  filterFn: (node) => node.name !== "tags",
   order: ["filter", "map", "sort"],
 } satisfies Options
 
