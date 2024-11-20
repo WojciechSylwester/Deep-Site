@@ -34,7 +34,7 @@ const defaultOptions = {
     }
   },
   filterFn: (node) => node.name !== "tags",
-  order: ["filter", "map", "sort"],
+  order: [ "map", "sort", "filter"],
 } satisfies Options
 
 export default ((userOpts?: Partial<Options>) => {
@@ -60,9 +60,9 @@ export default ((userOpts?: Partial<Options>) => {
           fileTree.map(opts.mapFn)
         } else if (functionName === "sort") {
           fileTree.sort(opts.sortFn)
-        } //else if (functionName === "filter") {
-          //fileTree.filter(opts.filterFn)
-        //}
+        } else if (functionName === "filter") {
+          fileTree.filter(opts.filterFn)
+        }
       }
     }
 
