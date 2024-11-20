@@ -1,5 +1,5 @@
 ---
-date modified: 2024-11-20 14:35
+date modified: 2024-11-20 14:44
 date created: 2024-11-20 12:20
 tags: 
 ---
@@ -49,7 +49,6 @@ list from #tag2
 
 
 
-
 ```dataview
 table file.ctime as "Created Time"
 where file.path = this.file.path
@@ -85,3 +84,14 @@ where file.path = this.file.path
 
 
 
+
+%% DATAVIEW_PUBLISHER: start
+```dataview
+list WITHOUT ID file.ctime
+where file.path = this.file.path
+```
+%%
+
+- 2:35 PM - November 20, 2024
+
+%% DATAVIEW_PUBLISHER: end %%
