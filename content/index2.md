@@ -1,5 +1,5 @@
 ---
-date modified: 2024-11-20 15:04
+date modified: 2024-11-20 15:31
 date created: 2024-11-20 12:20
 tags: 
 ---
@@ -13,8 +13,7 @@ Updated: `= this.file.mtime`
 
 # Untitled 1
 
-#tag1,
-#tag2 ,
+
 
 
 %% DATAVIEW_PUBLISHER: start
@@ -111,8 +110,7 @@ group by tags
 
 | tags                |
 | ------------------- |
-| #dataview-publisher |
-| #tag2               |
+
 
 %% DATAVIEW_PUBLISHER: end %%
 
