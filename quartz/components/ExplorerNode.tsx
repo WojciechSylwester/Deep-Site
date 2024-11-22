@@ -98,9 +98,32 @@ export class FileNode {
   }
 
   // Add new file to tree
+ // add(file: QuartzPluginData) {
+  //  this.insert({ file: file, path: simplifySlug(file.slug!).split("/") })
+  //}
+
   add(file: QuartzPluginData) {
-    this.insert({ file: file, path: simplifySlug(file.slug!).split("/") })
+    const tags = file.frontmatter?.tags || ["Untagged"]; // Jeśli brak tagów, przypisz "Untagged"
+  
+    tags.forEach((tag) => {
+      // Znajdź istniejący węzeł dla tagu lub utwórz nowy
+      let tagNode = this.children.find((child) => child.name === tag);
+      if (!tagNode) {
+        tagNode = new FileNode(tag, tag); // Tworzymy nowy węzeł tagu
+        this.children.push(tagNode);
+      }
+  
+      // Dodaj plik do węzła tagu
+      const fileNode = new FileNode(
+        simplifySlug(file.slug!),
+        file.frontmatter?.title || "Untitled",
+        file,
+        this.depth + 1
+      );
+      tagNode.children.push(fileNode);
+    });
   }
+  
 
   /**
    * Filter FileNode tree. Behaves similar to `Array.prototype.filter()`, but modifies tree in place
