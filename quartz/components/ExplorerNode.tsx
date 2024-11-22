@@ -105,7 +105,8 @@ export class FileNode {
   add(file: QuartzPluginData) {
     const tags = file.frontmatter?.tags;
     const title = file.frontmatter?.title || "Untitled";
-  
+    const ignoredTitles = ["Choose Tag & Learn", "sortspec"]; // Przykładowe tytuły do ignorowania
+
     // Sprawdź, czy tytuł jest na liście ignorowanych
     if (ignoredTitles.includes(title)) {
       return; // Pomijamy plik
