@@ -105,8 +105,15 @@ export class FileNode {
   add(file: QuartzPluginData) {
     const tags = file.frontmatter?.tags;
   
-    // Jeśli plik nie ma tagów, pomiń go
     if (!tags || tags.length === 0) {
+      // Pliki bez tagów dodajemy bezpośrednio do root
+      const fileNode = new FileNode(
+        simplifySlug(file.slug!),
+        file.frontmatter?.title || "Untitled",
+        file,
+        this.depth + 1
+      );
+      this.children.push(fileNode);
       return;
     }
   
@@ -128,6 +135,7 @@ export class FileNode {
       tagNode.children.push(fileNode);
     });
   }
+  
   
   
 
