@@ -103,7 +103,12 @@ export class FileNode {
   //}
 
   add(file: QuartzPluginData) {
-    const tags = file.frontmatter?.tags || ["Untagged"]; // Jeśli brak tagów, przypisz "Untagged"
+    const tags = file.frontmatter?.tags;
+  
+    // Jeśli plik nie ma tagów, pomiń go
+    if (!tags || tags.length === 0) {
+      return;
+    }
   
     tags.forEach((tag) => {
       // Znajdź istniejący węzeł dla tagu lub utwórz nowy
@@ -123,6 +128,7 @@ export class FileNode {
       tagNode.children.push(fileNode);
     });
   }
+  
   
 
   /**
