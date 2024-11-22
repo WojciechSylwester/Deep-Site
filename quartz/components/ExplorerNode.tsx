@@ -104,12 +104,18 @@ export class FileNode {
 
   add(file: QuartzPluginData) {
     const tags = file.frontmatter?.tags;
+    const title = file.frontmatter?.title || "Untitled";
+  
+    // Sprawdź, czy tytuł jest na liście ignorowanych
+    if (ignoredTitles.includes(title)) {
+      return; // Pomijamy plik
+    }
   
     if (!tags || tags.length === 0) {
       // Pliki bez tagów dodajemy bezpośrednio do root
       const fileNode = new FileNode(
         simplifySlug(file.slug!),
-        file.frontmatter?.title || "Untitled",
+        title,
         file,
         this.depth + 1
       );
@@ -128,13 +134,14 @@ export class FileNode {
       // Dodaj plik do węzła tagu
       const fileNode = new FileNode(
         simplifySlug(file.slug!),
-        file.frontmatter?.title || "Untitled",
+        title,
         file,
         this.depth + 1
       );
       tagNode.children.push(fileNode);
     });
   }
+  
   
   
   
