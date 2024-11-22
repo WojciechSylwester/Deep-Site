@@ -106,7 +106,7 @@ export class FileNode {
     const tags = file.frontmatter?.tags;
     const title = file.frontmatter?.title || "Untitled";
     const ignoredTitles = ["Choose Tag & Learn", "sortspec"]; // Przykładowe tytuły do ignorowania
-
+  
     // Sprawdź, czy tytuł jest na liście ignorowanych
     if (ignoredTitles.includes(title)) {
       return; // Pomijamy plik
@@ -125,23 +125,32 @@ export class FileNode {
     }
   
     tags.forEach((tag) => {
-      // Znajdź istniejący węzeł dla tagu lub utwórz nowy
-      let tagNode = this.children.find((child) => child.name === tag);
-      if (!tagNode) {
-        tagNode = new FileNode(tag, tag); // Tworzymy nowy węzeł tagu
-        this.children.push(tagNode);
-      }
+      const tagHierarchy = tag.split("/"); // Podziel tag na części wg "/"
+      let currentNode = this;
   
-      // Dodaj plik do węzła tagu
+      tagHierarchy.forEach((tagPart) => {
+        // Znajdź istniejący węzeł dla tagu lub utwórz nowy
+        let tagNode = currentNode.children.find((child) => child.name === tagPart);
+        if (!tagNode) {
+          tagNode = new FileNode(tagPart, tagPart); // Tworzymy nowy węzeł tagu
+          currentNode.children.push(tagNode);
+        }
+  
+        // Przechodzimy głębiej w hierarchii
+        currentNode = tagNode;
+      });
+  
+      // Dodaj plik do ostatniego węzła hierarchii
       const fileNode = new FileNode(
         simplifySlug(file.slug!),
         title,
         file,
-        this.depth + 1
+        currentNode.depth + 1
       );
-      tagNode.children.push(fileNode);
+      currentNode.children.push(fileNode);
     });
   }
+  
   
   
   
