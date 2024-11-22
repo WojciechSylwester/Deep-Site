@@ -191,14 +191,21 @@ export class FileNode {
  //   this.children.forEach((e) => e.sort(sortFn))
  // }
 
-  sort(sortFn: (a: FileNode, b: FileNode) => number) {
-    this.children = this.children.sort((a, b) => {
-      // Sortuj najpierw tagi alfabetycznie, potem pliki w ramach tagów według sortFn
-      return a.file ? sortFn(a, b) : a.name.localeCompare(b.name);
-    });
-  
-    this.children.forEach((child) => child.sort(sortFn));
-  }
+ sort(sortFn: (a: FileNode, b: FileNode) => number) {
+  this.children = this.children.sort((a, b) => {
+    // Foldery najpierw, potem pliki, w obu przypadkach według sortFn
+    if (!a.file && !b.file) {
+      return a.name.localeCompare(b.name); // Foldery alfabetycznie
+    } else if (!a.file || !b.file) {
+      return a.file ? 1 : -1; // Foldery przed plikami
+    } else {
+      return sortFn(a, b); // Sortowanie plików
+    }
+  });
+
+  this.children.forEach((child) => child.sort(sortFn));
+}
+
   
 }
 
