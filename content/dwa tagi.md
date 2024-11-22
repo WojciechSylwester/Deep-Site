@@ -1,11 +1,8 @@
 ---
-date modified: 2024-11-22 14:37
+date modified: 2024-11-22 20:38
 date created: 2024-11-20 12:20
 tags:
-  - wydajność
-  - XGB
-  - DMatrix
-t1: 
+  - wydajność/python
 ---
 %% DATAVIEW_PUBLISHER: start
 ```dataview
@@ -17,15 +14,9 @@ where file.path = this.file.path
 
 | Created          | Updated          |
 | ---------------- | ---------------- |
-| 2024-11-22 13:27 | 2024-11-22 14:37 |
+| 2024-11-20 12:20 | 2024-11-20 15:30 |
 
 %% DATAVIEW_PUBLISHER: end %%
 
 ----
-Wydajność w XGB jest większa przy użyciu DMatrix.
-
-
-
-[[XGB DMatrix]]
-[[dmatrix]]
 
