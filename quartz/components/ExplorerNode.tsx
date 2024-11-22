@@ -172,10 +172,20 @@ export class FileNode {
    * Sorts tree according to sort/compare function
    * @param sortFn compare function used for `.sort()`, also used recursively for children
    */
+  //sort(sortFn: (a: FileNode, b: FileNode) => number) {
+   // this.children = this.children.sort(sortFn)
+ //   this.children.forEach((e) => e.sort(sortFn))
+ // }
+
   sort(sortFn: (a: FileNode, b: FileNode) => number) {
-    this.children = this.children.sort(sortFn)
-    this.children.forEach((e) => e.sort(sortFn))
+    this.children = this.children.sort((a, b) => {
+      // Sortuj najpierw tagi alfabetycznie, potem pliki w ramach tagów według sortFn
+      return a.file ? sortFn(a, b) : a.name.localeCompare(b.name);
+    });
+  
+    this.children.forEach((child) => child.sort(sortFn));
   }
+  
 }
 
 type ExplorerNodeProps = {
